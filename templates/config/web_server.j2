@@ -1,0 +1,32 @@
+exports.config = {
+  host: '{{ elao_logio_webserver_host }}',
+  port: {{ elao_logio_webserver_port }},
+
+  {%if elao_logio_webserver_auth_user is defined and elao_logio_webserver_auth_pass is defined %}
+  // Enable HTTP Basic Authentication
+  auth: {
+    user: '{{ elao_logio_webserver_auth_user }}',
+    pass: '{{ elao_logio_webserver_auth_pass }}'
+  },
+  {% endif %}
+
+  {%if elao_logio_webserver_ssl_key is defined and elao_logio_webserver_ssl_cert is defined %}
+  // Enable HTTPS/SSL
+  ssl: {
+    key: '{{ elao_logio_webserver_ssl_key }}',
+    cert: '{{ elao_logio_webserver_ssl_cert }}'
+  },
+  {% endif %}
+
+  {%if elao_logio_webserver_restrictsocket is defined %}
+  // Restrict access to websocket (socket.io)
+  // Uses socket.io 'origins' syntax
+  restrictSocket: '{{ elao_logio_webserver_restrictsocket }}',
+  {% endif %}
+
+  {%if elao_logio_webserver_restrictshttp is defined %}
+  // Restrict access to http server (express)
+  restrictHTTP: {{ elao_logio_webserver_restrictshttp }}
+  {% endif %}
+
+}

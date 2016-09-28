@@ -1,34 +1,54 @@
+Ansible role to install Log.io
+============================
 
-# Ansible Role: Log.io
+
+Requirements
+-----------
+## Requirements
+
+- Ansible 2.1
+
+
+Dependencies
+-----------
+
+Steamulo npm install role
+
+
+Description
+-----------
 
 This role will assume the setup of log.io
 
-It's part of the ELAO [Ansible stack](http://ansible.elao.com) but can be used as a stand alone component.
+Role Variables
+--------------
 
-## Requirements
 
-- Ansible 1.7.2+
+    # User
+    elao_logio_user: root
+    elao_logio_npm_prefix: /usr
 
-## Dependencies
+    # Config
+    elao_logio_config_dir:     ~/.log.io
+    elao_logio_config_harvester: []
 
-None.
+    elao_logio_logserver_host: "0.0.0.0"
+    elao_logio_logserver_port: 28777
 
-## Installation
+    elao_logio_webserver_host: "0.0.0.0"
+    elao_logio_webserver_port: 28778
+    #elao_logio_webserver_auth_login:
+    #elao_logio_webserver_auth_pass:
 
-Using ansible galaxy:
+    #elao_logio_webserver_ssl_key: /path/to/certificate.pem
+    #elao_logio_webserver_ssl_cert: /path/to/privatekey.pem
 
-```bash
-ansible-galaxy install elao.logio
-```
-You can add this role as a dependency for other roles by adding the role to the meta/main.yml file of your own role:
+    #elao_logio_webserver_restrictsocket: "*:*"
 
-```yaml
-dependencies:
-  - { role: elao.logio }
-```
+    #elao_logio_webserver_restrictshttp: [ "192.168.29.39", "10.0.*" ]
 
-## Example playbook
-
+Example Playbook
+----------------
     - hosts: servers
       vars:
         elao_logio_config_harvester:
@@ -38,11 +58,13 @@ dependencies:
                 - "/var/log/auth.log"
                 - "/var/log/kern.log"
       roles:
-         - { role: elao.logio }
+         - { role: steamulo.logio }
 
-# Licence
+License
+-------
 
-MIT
 
-# Author information
+Author Information
+------------------
 
+STEAMULO - http://www.steamulo.com

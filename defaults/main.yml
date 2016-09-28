@@ -2,16 +2,23 @@
 
 # User
 elao_logio_user: root
+elao_logio_npm_prefix: /usr
 
 # Config
-elao_logio_config_log_server_file:     /{{ elao_logio_user }}/.log.io/log_server.conf
-elao_logio_config_log_server_template: ~
-elao_logio_config_log_server:          []
+elao_logio_config_dir:     ~/.log.io
+elao_logio_config_harvester: []
 
-elao_logio_config_web_server_file:     /{{ elao_logio_user }}/.log.io/web_server.conf
-elao_logio_config_web_server_template: ~
-elao_logio_config_web_server:          []
+elao_logio_logserver_host: "0.0.0.0"
+elao_logio_logserver_port: 28777
 
-elao_logio_config_harvester_file:     /{{ elao_logio_user }}/.log.io/harvester.conf
-elao_logio_config_harvester_template: ~
-elao_logio_config_harvester:          []
+elao_logio_webserver_host: "0.0.0.0"
+elao_logio_webserver_port: 28778
+#elao_logio_webserver_auth_login:
+#elao_logio_webserver_auth_pass:
+
+#elao_logio_webserver_ssl_key: /path/to/certificate.pem
+#elao_logio_webserver_ssl_cert: /path/to/privatekey.pem
+
+#elao_logio_webserver_restrictsocket: "*:*"
+
+#elao_logio_webserver_restrictshttp: [ "192.168.29.39", "10.0.*" ]

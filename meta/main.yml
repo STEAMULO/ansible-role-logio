@@ -1,19 +1,23 @@
 ---
 
-dependencies: []
-
 galaxy_info:
-
-  author:              Elao
-  company:             Elao
-  description: >
-    Setup Log.io.
-  license: MIT
-  min_ansible_version: 1.9.0
+  author: hebergement@steamulo.com
+  description: Install and configure a logio server
+  company: Steamulo
+  license: "Apache v2.0"
+  min_ansible_version: 2.1
   platforms:
-    - name: Debian
-      versions:
-        - wheezy
-  categories:
-    - development
-    - web
+  - name: Ubuntu
+    versions:
+    - precise
+    - raring
+    - saucy
+    - trusty
+  categories: []
+
+dependencies:
+
+  - src: https://github.com/STEAMULO/ansible-role-npm.git
+    version: c0e2418
+    name: steamulo.npm
+    tags: npm
