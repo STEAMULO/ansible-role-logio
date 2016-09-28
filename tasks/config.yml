@@ -5,6 +5,7 @@
     src:  config/log_server.j2
     dest: "{{ elao_logio_config_dir }}/log_server.conf"
   notify:
+    - log.io-harvester restart
     - log.io-server restart
 
 - name: config > Web server template
@@ -12,6 +13,7 @@
     src:  config/web_server.j2
     dest: "{{ elao_logio_config_dir }}/web_server.conf"
   notify:
+    - log.io-harvester restart
     - log.io-server restart
 
 - name: config > Harvester template
@@ -20,3 +22,4 @@
     dest: "{{ elao_logio_config_dir }}/harvester.conf"
   notify:
     - log.io-harvester restart
+    - log.io-server restart
