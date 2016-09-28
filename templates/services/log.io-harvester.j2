@@ -12,10 +12,10 @@
 USERNAME={{ elao_logio_user }}
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script.
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:{{ elao_logio_npm_prefix }}/bin
 DESC="Log.io harvester"
 NAME=log.io-harvester
-DAEMON=/usr/bin/log.io-harvester
+DAEMON={{ elao_logio_npm_prefix }}/bin/log.io-harvester
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 VERBOSE=yes
