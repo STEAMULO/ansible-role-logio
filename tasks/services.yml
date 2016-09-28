@@ -6,6 +6,9 @@
     dest:  /etc/init.d/log.io-server
     owner: root
     mode:  0755
+  notify:
+    - log.io-server restart
+    - log.io-harvester restart
 
 - name: services > Harvester init
   template:
@@ -13,6 +16,9 @@
     dest:  /etc/init.d/log.io-harvester
     owner: root
     mode:  0755
+  notify:
+    - log.io-server restart
+    - log.io-harvester restart
 
 - name: services > Services
   service:

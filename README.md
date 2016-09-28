@@ -1,4 +1,3 @@
-<img src="http://www.elao.com/images/corpo/logo_red_small.png"/>
 
 # Ansible Role: Log.io
 
@@ -31,6 +30,13 @@ dependencies:
 ## Example playbook
 
     - hosts: servers
+      vars:
+        elao_logio_config_harvester:
+            - nodeName: NodeXXX
+            - logStreams:
+              - syslog:
+                - "/var/log/auth.log"
+                - "/var/log/kern.log"
       roles:
          - { role: elao.logio }
 
@@ -40,4 +46,3 @@ MIT
 
 # Author information
 
-ELAO [**(http://www.elao.com/)**](http://www.elao.com)

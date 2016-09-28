@@ -4,3 +4,6 @@
   command: 'npm install -g log.io --user "{{ elao_logio_user }}" --prefix={{ elao_logio_npm_prefix }}'
   args:
     creates: "{{ elao_logio_npm_prefix }}/bin/log.io-server"
+  notify:
+    - log.io-server restart
+    - log.io-harvester restart
