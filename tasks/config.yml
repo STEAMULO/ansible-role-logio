@@ -29,8 +29,8 @@
 
 - name: Force kill log webserver
   shell: "ps aux | grep log.io-server | grep -v grep | awk '{print $2}' | xargs kill -9"
-  when: web_server_conf.changed or log_server_conf.changed
+  when: web_server_conf.changed or log_server_conf.changed or harvester_conf.changed
 
 - name: Force kill harvester server
   shell: "ps aux | grep log.io-harvester | grep -v grep | awk '{print $2}' | xargs kill -9"
-  when: harvester_conf.changed or log_server_conf.changed
+  when: web_server_conf.changed or log_server_conf.changed or harvester_conf.changed
