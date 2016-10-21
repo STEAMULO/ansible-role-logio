@@ -1,0 +1,20 @@
+
+
+- name: Force kill log webserver
+  shell: "ps aux | grep log.io-server | grep -v grep | awk '{print $2}' | xargs kill -9"
+
+- name: Force kill harvester server
+  shell: "ps aux | grep log.io-harvester | grep -v grep | awk '{print $2}' | xargs kill -9"
+
+- name: Stop all services
+  service: name="{{ item }}" state=stopped
+  with_items:
+    - log.io-harvester
+    - log.io-server
+  ignore_errors: true
+
+- name: Remove old init.d files
+  file: path="{{ item }}" state="absent"
+  with_items:
+    - /etc/init.d/log.io-harvester
+    - /etc/init.d/log.io-server

@@ -5,5 +5,5 @@
   args:
     creates: "{{ elao_logio_npm_prefix }}/bin/log.io-server"
   notify:
-    - log.io-server restart
-    - log.io-harvester restart
+    - logio-server restart
+    - logio-harvester restart

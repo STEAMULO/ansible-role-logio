@@ -1,5 +1,7 @@
 ---
 
+elao_logio_node_path: /usr/bin/node
+
 # User
 elao_logio_user: root
 elao_logio_npm_prefix: /usr

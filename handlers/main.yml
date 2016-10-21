@@ -1,11 +1,11 @@
 ---
 
-- name: log.io-server restart
+- name: logio-server restart
   service:
-    name:  log.io-server
+    name:  logio-server
     state: restarted
 
-- name: log.io-harvester restart
+- name: logio-harvester restart
   service:
-    name:  log.io-harvester
+    name:  logio-harvester
     state: restarted

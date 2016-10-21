@@ -6,8 +6,8 @@
     dest: "{{ elao_logio_config_dir }}/log_server.conf"
   register: log_server_conf
   notify:
-    - log.io-harvester restart
-    - log.io-server restart
+    - logio-harvester restart
+    - logio-server restart
 
 - name: config > Web server template
   template:
@@ -15,8 +15,8 @@
     dest: "{{ elao_logio_config_dir }}/web_server.conf"
   register: web_server_conf
   notify:
-    - log.io-harvester restart
-    - log.io-server restart
+    - logio-harvester restart
+    - logio-server restart
 
 - name: config > Harvester template
   template:
@@ -24,13 +24,5 @@
     dest: "{{ elao_logio_config_dir }}/harvester.conf"
   register: harvester_conf
   notify:
-    - log.io-harvester restart
-    - log.io-server restart
-
-- name: Force kill log webserver
-  shell: "ps aux | grep log.io-server | grep -v grep | awk '{print $2}' | xargs kill -9"
-  when: web_server_conf.changed or log_server_conf.changed or harvester_conf.changed
-
-- name: Force kill harvester server
-  shell: "ps aux | grep log.io-harvester | grep -v grep | awk '{print $2}' | xargs kill -9"
-  when: web_server_conf.changed or log_server_conf.changed or harvester_conf.changed
+    - logio-harvester restart
+    - logio-server restart
