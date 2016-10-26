@@ -32,6 +32,7 @@ Role Variables
     elao_logio_config_dir:     ~/.log.io
     elao_logio_config_harvester: []
 
+    elao_logio_logserver_bind_address: "0.0.0.0"
     elao_logio_logserver_host: "0.0.0.0"
     elao_logio_logserver_port: 28777
 
