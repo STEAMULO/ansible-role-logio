@@ -1,6 +1,6 @@
 ---
 
-- name: config> Ensure config dir exists
+- name: config > Ensure config dir exists
   file:
     path: "{{ elao_logio_config_dir }}"
     state: directory
