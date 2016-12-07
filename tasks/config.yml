@@ -1,5 +1,13 @@
 ---
 
+- name: config> Ensure config dir exists
+  file:
+    path: "{{ elao_logio_config_dir }}"
+    state: directory
+    owner: "{{ elao_logio_user }}"
+    group: "{{ elao_logio_user }}"
+    mode: 0755
+
 - name: config > Log server template
   template:
     src:  config/log_server.j2
