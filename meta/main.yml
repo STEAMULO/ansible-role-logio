@@ -21,3 +21,4 @@ dependencies:
     version: c0e2418
     name: steamulo.npm
     tags: npm
+    when: not elao_logio_skip_npm_dep

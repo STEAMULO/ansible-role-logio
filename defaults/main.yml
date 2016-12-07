@@ -1,5 +1,7 @@
 ---
 
+elao_logio_skip_npm_dep: false
+
 elao_logio_node_path: /usr/bin/node
 
 # User
